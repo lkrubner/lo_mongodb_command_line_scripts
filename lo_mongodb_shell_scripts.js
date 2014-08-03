@@ -3,16 +3,16 @@
 function empty_the_collections(db) {
     var all_collections = db.getCollectionNames(); 
     for (var i=0; i < all_collections.length; i++) { 
-	print("we will now empty this collection: " + all_collections[i]); 
 	var this_collection = all_collections[i];
 	if (this_collection != 'system.indexes') {
+	    print("we will now empty this collection: " + this_collection); 
 	    db[this_collection].remove(); 
 	}
     }
 }
 
 
-function show_counts_of_the_collections() {
+function show_counts_of_the_collections(db) {
     var all_collections = db.getCollectionNames(); 
     for (var i=0; i < all_collections.length; i++) { 
 	print("how many records are in this collection: " + all_collections[i]); 
