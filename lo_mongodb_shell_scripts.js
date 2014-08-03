@@ -5,7 +5,9 @@ function empty_the_collections(db) {
     for (var i=0; i < all_collections.length; i++) { 
 	print("we will now empty this collection: " + all_collections[i]); 
 	var this_collection = all_collections[i];
-	db[this_collection].remove(); 
+	if (this_collection != 'system.indexes') {
+	    db[this_collection].remove(); 
+	}
     }
 }
 
