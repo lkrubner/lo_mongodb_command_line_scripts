@@ -11,13 +11,27 @@ function empty_the_collections(db) {
     }
 }
 
-
 function show_counts_of_the_collections(db) {
     var all_collections = db.getCollectionNames(); 
     for (var i=0; i < all_collections.length; i++) { 
 	print("how many records are in this collection: " + all_collections[i]); 
 	var this_collection = all_collections[i];
 	print(db[this_collection].count()); 
+    }
+}
+
+function remove_imported_and_fake_data(db) {
+    var all_collections = db.getCollectionNames(); 
+    for (var i=0; i < all_collections.length; i++) { 
+	var this_collection = all_collections[i];
+	if (this_collection != 'system.indexes') {
+	    print("we will now remove 'this_document_was_imported_from':'opensis' this collection: " + this_collection); 
+	    db[this_collection].remove({'this_document_was_imported_from':'opensis'}); 
+	    print("we will now remove 'this_document_was_imported_from':'moodle' this collection: " + this_collection); 
+	    db[this_collection].remove({'this_document_was_imported_from':'moodle'}); 
+	    print("we will now remove 'origin':'fake-from-loira' this collection: " + this_collection); 
+	    db[this_collection].remove({'origin':'fake-from-loira'}); 
+	}
     }
 }
 
