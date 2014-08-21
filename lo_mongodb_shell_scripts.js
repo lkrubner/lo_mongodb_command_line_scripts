@@ -26,11 +26,11 @@ function remove_imported_and_fake_data(db) {
 	var this_collection = all_collections[i];
 	if (this_collection != 'system.indexes') {
 	    print("we will now remove 'this_document_was_imported_from':'opensis' this collection: " + this_collection); 
-	    db[this_collection].remove({'this_document_was_imported_from':'opensis'}); 
+	    print(db[this_collection].remove({'this_document_was_imported_from':'opensis'})); 
 	    print("we will now remove 'this_document_was_imported_from':'moodle' this collection: " + this_collection); 
-	    db[this_collection].remove({'this_document_was_imported_from':'moodle'}); 
+	    print(db[this_collection].remove({'this_document_was_imported_from':'moodle'})); 
 	    print("we will now remove 'origin':'fake-from-loira' this collection: " + this_collection); 
-	    db[this_collection].remove({'origin':'fake-from-loira'}); 
+	    print(db[this_collection].remove({'origin':'fake-from-loira'})); 
 	}
     }
 }
