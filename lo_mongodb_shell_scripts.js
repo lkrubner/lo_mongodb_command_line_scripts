@@ -25,10 +25,10 @@ function remove_imported_and_fake_data(db) {
     for (var i=0; i < all_collections.length; i++) { 
 	var this_collection = all_collections[i];
 	if (this_collection != 'system.indexes') {
-	    print("we will now remove 'this_document_was_imported_from':'opensis' this collection: " + this_collection); 
-	    print(db[this_collection].remove({'this_document_was_imported_from':'opensis'})); 
-	    print("we will now remove 'this_document_was_imported_from':'moodle' this collection: " + this_collection); 
-	    print(db[this_collection].remove({'this_document_was_imported_from':'moodle'})); 
+	    print("we will now remove 'origin':'opensis' this collection: " + this_collection); 
+	    print(db[this_collection].remove({'origin':'opensis'})); 
+	    print("we will now remove 'origin':'moodle' this collection: " + this_collection); 
+	    print(db[this_collection].remove({'origin':'moodle'})); 
 	    print("we will now remove 'origin':'fake-from-loira' this collection: " + this_collection); 
 	    print(db[this_collection].remove({'origin':'fake-from-loira'})); 
 	}
